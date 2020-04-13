@@ -226,7 +226,7 @@ class HTML5Translator(SphinxTranslator, BaseTranslator):
         self.body.append(self.starttag(node, 'a', '', **atts))
 
         if node.get('secnumber'):
-            self.body.append(('%s' + self.secnumber_suffix) %
+            self.body.append(('<span class="toc-secnumber">%s</span>' + self.secnumber_suffix) %
                              '.'.join(map(str, node['secnumber'])))
 
     def visit_number_reference(self, node: Element) -> None:
