@@ -550,7 +550,9 @@ class StandaloneHTMLBuilder(Builder):
         # title rendered as HTML
         title_node = self.env.longtitles.get(docname)
         title = self.render_partial(title_node)['title'] if title_node else ''
-
+        if "no title" in title:
+            title = "Table of Contents"
+        title = title.split("</span>")[-1]
         # Suffix for the document
         source_suffix = self.env.doc2path(docname, False)[len(docname):]
 
